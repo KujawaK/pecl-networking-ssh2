@@ -517,9 +517,7 @@ session_authed:
 		sftp_data->sftp = sftp;
 		sftp_data->session_rsrc = Z_RES(zsession);
 
-		//TODO Sean-Der
-		//ZEND_REGISTER_RESOURCE(sftp_data, le_ssh2_sftp);
-		*psftp_rsrc = Z_RES(zsftp);
+		*psftp_rsrc = zend_register_resource(sftp_data, le_ssh2_sftp);
 		*psftp = sftp;
 	}
 
